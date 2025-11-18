@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniscede Mozambique</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff0000, #0000ff, #00ff00, #ffff00, #ff00ff, #00ffff);
+            color: #333;
+            line-height: 1.6;
+            animation: backgroundShift 15s infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% {
+                background: linear-gradient(135deg, #ff0000, #0000ff, #00ff00, #ffff00, #ff00ff, #00ffff);
+            }
+
+            25% {
+                background: linear-gradient(135deg, #0000ff, #00ff00, #ffff00, #ff00ff, #00ffff, #ff0000);
+            }
+
+            50% {
+                background: linear-gradient(135deg, #00ff00, #ffff00, #ff00ff, #00ffff, #ff0000, #0000ff);
+            }
+
+            75% {
+                background: linear-gradient(135deg, #ffff00, #ff00ff, #00ffff, #ff0000, #0000ff, #00ff00);
+            }
+
+            100% {
+                background: linear-gradient(135deg, #ff00ff, #00ffff, #ff0000, #0000ff, #00ff00, #ffff00);
+            }
+        }
+
+        header {
+            background-color: rgba(0, 64, 128, 0.9);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .uni-letters {
+            font-size: 4em;
+            font-weight: bold;
+        }
+
+        .uni-letters .u {
+            color: #ff0000;
+        }
+
+        .uni-letters .n {
+            color: #0000ff;
+        }
+
+        .uni-letters .i {
+            color: #00ff00;
+        }
+
+        .uni-letters .s {
+            color: #ffff00;
+        }
+
+        .uni-letters .c {
+            color: #ff00ff;
+        }
+
+        .uni-letters .e {
+            color: #00ffff;
+        }
+
+        .uni-letters .d {
+            color: #ff0000;
+        }
+
+        nav {
+            background-color: rgba(0, 102, 204, 0.9);
+            padding: 10px;
+            text-align: center;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffeb3b;
+            transform: scale(1.1);
+        }
+
+        .social-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: rotate(360deg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background-image: url('https://via.placeholder.com/1200x400?text=Uniscede+Mozambique');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            animation: zoomIn 1.5s ease-in;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .hero h2 {
+            font-size: 2em;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .section h3 {
+            color: #004080;
+            border-bottom: 3px solid #ff0000;
+            padding-bottom: 10px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .course-list,
+        .event-list,
+        .professor-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .course-item,
+        .event-item,
+        .professor-item {
+            background: linear-gradient(45deg, #ff0000, #0000ff, #00ff00, #ffff00);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-item:hover,
+        .event-item:hover,
+        .professor-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .course-item h4,
+        .event-item h4,
+        .professor-item h4 {
+            margin: 0 0 10px 0;
+        }
+
+        .course-item p,
+        .event-item p,
+        .professor-item p {
+            margin: 5px 0;
+        }
+
+        .course-item button,
+        .event-item button,
+        .professor-item button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .course-item button:hover,
+        .event-item button:hover,
+        .professor-item button:hover {
+            background-color: #c82333;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .news-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-list li {
+            background-color: rgba(0, 102, 204, 0.1);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .news-list a {
+            color: #004080;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .news-list a:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #ff0000;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(45deg, #ff0000, #0000ff);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(45deg, #0000ff, #ff0000);
+        }
+
+        .search-sort {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .search-sort input,
+        .search-sort select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: border-color 0.3s;
+        }
+
+        .search-sort input:focus,
+        .search-sort select:focus {
+            border-color: #00ff00;
+        }
+
+        .search-sort button {
+            padding: 10px 15px;
+            background: linear-gradient(45deg, #00ff00, #ffff00);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-sort button:hover {
+            background: linear-gradient(45deg, #ffff00, #00ff00);
+        }
+
+        footer {
+            background-color: rgba(0, 64, 128, 0.9);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .course-list,
+            .event-list,
+            .professor-list,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .search-sort {
+                flex-direction: column;
+            }
+
+            .search-sort input,
+            .search-sort select,
+            .search-sort button {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            .social-links {
+                position: static;
+                justify-content: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="uni-letters">
+            <span class="u">U</span><span class="n">n</span><span class="i">i</span><span class="s">s</span><span
+                class="c">c</span><span class="e">e</span><span class="d">d</span><span class="e">e</span>
+        </div>
+        <h1>Mozambique</h1>
+        <p>Excelência em Educação Superior</p>
+        <div class="social-links">
+            <a href="https://www.youtube.com" target="_blank" title="YouTube">📺</a>
+            <a href="https://www.facebook.com" target="_blank" title="Facebook">📘</a>
+            <a href="https://wa.me/" target="_blank" title="WhatsApp">💬</a>
+            <p  style="color: #00ff00;">Domingos Albano Parafino</p>
+        </div>
+    </header>
+    <nav>
+        <a href="#home">Início</a>
+        <a href="#about">Sobre</a>
+        <a href="#courses">Cursos</a>
+        <a href="#professors">Professores</a>
+        <a href="#events">Eventos</a>
+        <a href="#news">Notícias</a>
+        <a href="#gallery">Galeria</a>
+        <a href="#contact">Contato</a>
+    </nav>
+    <div class="hero" id="home">
+        <div>
+            <h2>Bem-vindo à Universidade Uniscede Mozambique</h2>
+            <p>Formando líderes para o futuro de Moçambique.</p>
+        </div>
+    </div>
+    <div class="container">
+        <section class="section" id="about">
+            <h3>Sobre a Faculdade</h3>
+            <p>A Uniscede Mozambique é uma instituição de ensino superior dedicada a oferecer cursos de alta qualidade,
+                promover pesquisa e inovação, e contribuir para o desenvolvimento sustentável de Moçambique.</p>
+        </section>
+        <section class="section" id="courses">
+            <h3>Cursos</h3>
+            <div class="search-sort">
+                <input type="text" id="searchCourseInput" placeholder="Buscar por nome ou categoria...">
+                <select id="sortCourseSelect">
+                    <option value="name">Ordenar por Nome</option>
+                    <option value="duration">Ordenar por Duração</option>
+                    <option value="category">Ordenar por Categoria</option>
+                </select>
+                <button onclick="searchCourses()">Buscar</button>
+                <button onclick="sortCourses()">Ordenar</button>
+            </div>
+            <div id="courseList" class="course-list">
+                <!-- Cursos serão carregados aqui via JS -->
+            </div>
+            <h4>Adicionar Novo Curso</h4>
+            <form id="addCourseForm">
+                <div class="form-group">
+                    <label for="courseName">Nome do Curso:</label>
+                    <input type="text" id="courseName" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseCategory">Categoria:</label>
+                    <select id="courseCategory" required>
+                        <option value="Ciências">Ciências</option>
+                        <option value="Engenharia">Engenharia</option>
+                        <option value="Humanas">Humanas</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Negócios">Negócios</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="courseDuration">Duração (anos):</label>
+                    <input type="number" id="courseDuration" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseDescription">Descrição:</label>
+                    <textarea id="courseDescription" rows="4" required></textarea>
+                </div>
+                <button type="submit">Adicionar Curso</button>
+            </form>
+        </section>
+        <section class="section" id="professors">
+            <h3>Professores</h3>
+            <div class="search-sort">
+                <input type="text" id="searchProfessorInput" placeholder="Buscar por nome ou departamento...">
+                <select id="sortProfessorSelect">
+                    <option value="name">Ordenar por Nome</option>
+                    <option value="department">Ordenar por Departamento</option>
+                </select>
+                <button onclick="searchProfessors()">Buscar</button>
+                <button onclick="sortProfessors()">Ordenar</button>
+            </div>
+            <div id="professorList" class="professor-list">
+                <!-- Professores serão carregados aqui via JS -->
+            </div>
+            <h4>Adicionar Novo Professor</h4>
+            <form id="addProfessorForm">
+                <div class="form-group">
+                    <label for="professorName">Nome do Professor:</label>
+                    <input type="text" id="professorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="professorDepartment">Departamento:</label>
+                    <select id="professorDepartment" required>
+                        <option value="Ciências">Ciências</option>
+                        <option value="Engenharia">Engenharia</option>
+                        <option value="Humanas">Humanas</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Negócios">Negócios</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="professorBio">Biografia:</label>
+                    <textarea id="professorBio" rows="4" required></textarea>
+                </div>
+                <button type="submit">Adicionar Professor</button>
+            </form>
+        </section>
+        <section class="section" id="events">
+            <h3>Eventos</h3>
+            <div class="search-sort">
+                <input type="text" id="searchEventInput" placeholder="Buscar por nome ou categoria...">
+                <select id="sortEventSelect">
+                    <option value="name">Ordenar por Nome</option>
+                    <option value="date">Ordenar por Data</option>
+                    <option value="category">Ordenar por Categoria</option>
+                </select>
+                <button onclick="searchEvents()">Buscar</button>
+                <button onclick="sortEvents()">Ordenar</button>
+            </div>
+            <div id="eventList" class="event-list">
+                <!-- Eventos serão carregados aqui via JS -->
+            </div>
+            <h4>Adicionar Novo Evento</h4>
+            <form id="addEventForm">
+                <div class
